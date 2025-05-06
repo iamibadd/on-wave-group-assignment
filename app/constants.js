@@ -1,3 +1,5 @@
+// Think of this file responsible for all dynamic data rendering in the page
+
 // App text variables
 const appTextVariables = {
   appName: "CLICK FIT",
@@ -43,14 +45,14 @@ const appTextVariables = {
     btnText: "Upload Images",
   },
   footer: {
-    linksTitle: 'Dummy Links',
-  }
+    linksTitle: "Dummy Links",
+  },
 };
 
 // API endpoints
 const apiEndpoints = {
   numbersAPI: "http://numbersapi.com/1/30/date?json",
-  upload: "/upload",
+  upload: "http://localhost:5000/upload",
 };
 
 // Alert messages
@@ -62,7 +64,7 @@ const alertMessages = {
   uploadError: "Error uploading images. Please try again.",
 };
 
-// Wrap in IIFE
+// Wrap in IIFE to make the variables available globally using AppConfig object
 (function () {
   window.AppConfig = {
     APP_TEXT_VARIABLES: appTextVariables,

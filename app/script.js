@@ -1,4 +1,5 @@
-const { APP_TEXT_VARIABLES, API_ENDPOINTS } = window.AppConfig;
+const { APP_TEXT_VARIABLES, API_ENDPOINTS, ALERT_MESSAGES } = window.AppConfig;
+
 const {
   appName,
   hero,
@@ -9,7 +10,9 @@ const {
   uploadImage,
 } = APP_TEXT_VARIABLES;
 const { numbersAPI } = API_ENDPOINTS;
+const { navigationMsg, heroBtnMsg } = ALERT_MESSAGES;
 
+// Page loading functions
 const loadTopNavigationSection = () => {
   const topNavbar = $("#navbarNavItems");
   topNavbar.empty();
@@ -63,9 +66,7 @@ const loadFunFactSection = () => {
     url: numbersAPI,
     method: "GET",
     success: (data) => $("#funFact").text(data.text),
-    error: () => {
-      $("#funFact").text("I was kidding haha");
-    },
+    error: () => $("#funFact").text("I was kidding haha"),
   });
 };
 
@@ -96,12 +97,10 @@ const loadFooterSectionLinks = () => {
   });
 };
 
-const triggerPageAlert = () =>
-  alert(
-    "Ugh! I wish if we could proceed to the next page but only the home page is functional as of now."
-  );
+// On click events
+const triggerPageAlert = () => alert(navigationMsg);
 
-const heroBtnAlert = () => alert("I told you :)");
+const heroBtnAlert = () => alert(heroBtnMsg);
 
 $(document).ready(() => {
   // Load top navigation
