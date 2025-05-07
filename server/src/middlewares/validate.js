@@ -26,7 +26,6 @@ const validateAddUser = (req, res, next) => {
     return res.status(400).json({ error: error.details[0].message });
   }
 
-  // Replace request body with validated and sanitized data
   req.body = value;
   next();
 };

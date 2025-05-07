@@ -46,6 +46,7 @@ const appTextVariables = {
   },
   footer: {
     linksTitle: "Dummy Links",
+    copyright: `${new Date().getFullYear()} Click Fit. All rights reserved.`
   },
 };
 
