@@ -38,7 +38,7 @@ app.post("/upload", upload.array("images"), validateFiles, (req, res) => {
     path: `/upload_images/${file.filename}`,
   }));
 
-  res.json({
+  res.status(201).json({
     message: "Files uploaded successfully",
     files: fileUrls,
   });
@@ -50,10 +50,11 @@ app.post(
   validateAddUser,
   async (req, res) => {
     if (!req.body) return res.status(400).json({ error: "Body is empty" });
+
     const { email, password, type, active = 1 } = req.body;
     await createAddUserProcedure(db);
     await addUserViaProcedure(db, email, password, type, active);
-    res.json({
+    res.status(201).json({
       message: "Created stored procedure and added user",
     });
   }

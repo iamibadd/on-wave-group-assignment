@@ -46,14 +46,14 @@ const appTextVariables = {
   },
   footer: {
     linksTitle: "Dummy Links",
-    copyright: `${new Date().getFullYear()} Click Fit. All rights reserved.`
+    copyright: `${new Date().getFullYear()} Click Fit. All rights reserved.`,
   },
 };
 
 // API endpoints
 const apiEndpoints = {
   numbersAPI: "http://numbersapi.com/1/30/date?json",
-  upload: "http://localhost:5000/upload",
+  backendAPI: "http://localhost:5001",
 };
 
 // Alert messages

@@ -9,7 +9,7 @@ const {
   footer,
   uploadImage,
 } = APP_TEXT_VARIABLES;
-const { numbersAPI } = API_ENDPOINTS;
+const { numbersAPI, backendAPI } = API_ENDPOINTS;
 const { navigationMsg, heroBtnMsg, uploadSuccess, uploadError } =
   ALERT_MESSAGES;
 
@@ -189,7 +189,8 @@ const handleImagesUpload = () => {
   };
 
   // Upload images
-  uploadBtn.addEventListener("click", () => {
+  uploadBtn.addEventListener("click", (e) => {
+    e.preventDefault();
     if (files.length === 0) return;
 
     const formData = new FormData();
@@ -202,25 +203,21 @@ const handleImagesUpload = () => {
     uploadBtn.disabled = true;
 
     $.ajax({
-      url: "/upload",
+      url: `${backendAPI}/upload`,
       type: "POST",
       data: formData,
       processData: false,
       contentType: false,
       success: (response) => {
-        uploadStatus.html(
-          `<div class="alert alert-success">${uploadSuccess}</div>`
-        );
+        console.log(response);
+        uploadStatus.innerHTML = `<div class="alert alert-success">${uploadSuccess}</div>`;
         previewContainer.innerHTML = "";
         files = [];
         fileInput.value = "";
+        uploadBtn.disabled = false;
       },
       error: () => {
-        uploadStatus.html(
-          `<div class="alert alert-danger">${uploadError}</div>`
-        );
-        uploadStatus.innerHTML =
-          '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+        uploadStatus.innerHTML = `<div class="alert alert-danger">${uploadError}</div>`;
         uploadBtn.disabled = false;
       },
     });
@@ -252,6 +249,7 @@ const triggerPageAlert = () => alert(navigationMsg);
 
 const heroBtnAlert = () => alert(heroBtnMsg);
 
+// On load
 $(document).ready(() => {
   document.title = appName;
 
