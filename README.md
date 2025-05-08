@@ -2,11 +2,11 @@
 
 ## Features
 
-- 🏋️‍♀️ **Dynamic Workout Content Loading**
-- 📸 **Drag-and-Drop Image Uploads**
-- 📱 **Fully Responsive Design**
-- 🔄 **AJAX Form Submissions**
-- 🗃️ **MySQL Database Integration**
+- **Dynamic Workout Content Loading**
+- **Drag-and-Drop Image Uploads**
+- **Fully Responsive Design**
+- **AJAX Form Submissions**
+- **MySQL Database Integration**
 
 ## Setup Instructions
 
@@ -40,7 +40,7 @@
 4. Start the backend server:
 
    ```bash
-   node server.js
+   npm start
    ```
 
 ### Configuration
@@ -64,7 +64,7 @@ PORT=5000
 
 | Endpoint                               | Method | Description                   |
 | -------------------------------------- | ------ | ----------------------------- |
-| `http://numbersapi.com/1/30/date?json` | GET    | Get interesting fitness facts |
+| `http://numbersapi.com/1/30/date?json` | GET    | Get random facts with dates   |
 | `/upload`                              | POST   | Upload images                 |
 | `/create-user-procedure`               | POST   | Manually create DB procedures |
 
