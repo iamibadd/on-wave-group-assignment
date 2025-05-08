@@ -1,4 +1,4 @@
-# One Wave Fitness App
+# On Wave Fitness App
 
 ## Features
 
